@@ -5,60 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site Under Maintenance</title>
     <style>
-        /* General Body Styling */
+        /* Define CSS variables for colors */
+        :root {
+            /* Light Theme Colors (Default) */
+            --bg-color: #f4f4f4;
+            --container-bg: #fff;
+            --text-color: #333;
+            --heading-color: #2c3e50;
+            --accent-color: #ff6347;
+            --social-color: #3498db;
+        }
+
+        /* Dark Theme Colors */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #121212;
+                --container-bg: #1e1e1e;
+                --text-color: #e0e0e0;
+                --heading-color: #f0f0f0;
+                --accent-color: #ffa07a; /* A softer orange for dark mode */
+                --social-color: #3499ff;
+            }
+        }
+
+        /* General Body Styling - uses the variables */
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
             text-align: center;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         /* Container for content */
         .maintenance-container {
             max-width: 600px;
             padding: 40px;
-            background-color: #fff;
+            background-color: var(--container-bg);
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        
+        /* Adjust box shadow for dark mode to be less harsh */
+        @media (prefers-color-scheme: dark) {
+            .maintenance-container {
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            }
         }
 
         /* Icon styling */
         .icon {
             font-size: 72px;
-            color: #ff6347; /* A vibrant red-orange color */
+            color: var(--accent-color);
             margin-bottom: 20px;
         }
 
         /* Heading and Paragraph styling */
         h1 {
             font-size: 2.5em;
-            color: #2c3e50;
+            color: var(--heading-color);
             margin-bottom: 15px;
         }
 
         p {
             font-size: 1.1em;
             line-height: 1.6;
-            color: #666;
+            color: var(--text-color);
             margin-bottom: 25px;
         }
 
         /* Social media links */
         .social-links a {
             font-size: 24px;
-            color: #3498db;
+            color: var(--social-color);
             margin: 0 15px;
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         .social-links a:hover {
-            color: #2980b9;
+            color: var(--accent-color);
         }
     </style>
 </head>
@@ -73,6 +105,6 @@
         <p>
             For urgent inquiries, please contact us at: kingsterali2@gmail.com
         </p>
-    </div>
+        </div>
 </body>
 </html>
