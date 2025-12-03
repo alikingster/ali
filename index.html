@@ -7,277 +7,261 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* --- 1. Variables & Global Styles --- */
-        
-        /* Light Mode Defaults (ENFORCED) */
         :root {
-            --color-bg-dark: #FFFFFF;        
-            --color-text-light: #1A1A2E;     
-            --color-accent: #FF5722;         /* Vibrant Orange */
-            --color-secondary-dark: #F0F0F0; /* Light Gray for background sections */
-            --color-shadow: rgba(0, 0, 0, 0.1);
-            --color-shadow-hover: rgba(0, 0, 0, 0.2);
+            --color-bg: #fff;
+            --color-section: #f8f9fa;
+            --color-card: #fff;
+            --color-border: #e3e6ed;
+            --color-shadow: 0 2px 8px rgba(60,60,60,0.08);
+            --color-accent: #FF5722;
+            --color-text: #23234b;
+            --color-text-muted: #667;
             --font-heading: 'Montserrat', sans-serif;
             --font-body: 'Lato', sans-serif;
-            --transition-speed: 0.4s;
-            --border-radius: 8px; 
-        }
-
-        /* Dark Mode Overrides (Kept for variable consistency but unused) */
-        .dark-mode {
-            --color-bg-dark: #1A1A2E;        
-            --color-text-light: #F4F4F9;     
-            --color-accent: #FF5722;
-            --color-secondary-dark: #2C2C45; 
-            --color-shadow: rgba(255, 255, 255, 0.05);
-            --color-shadow-hover: rgba(255, 255, 255, 0.1);
+            --transition: .25s;
+            --radius: 12px;
         }
 
         body {
             font-family: var(--font-body);
-            color: var(--color-text-light);
-            background-color: var(--color-bg-dark);
-            margin: 0;
-            padding: 0;
-            line-height: 1.7; 
-            overflow-x: hidden;
-            transition: background-color var(--transition-speed), color var(--transition-speed);
+            color: var(--color-text);
+            background: var(--color-bg);
+            margin: 0; padding: 0;
+            line-height: 1.7;
+            transition: background var(--transition), color var(--transition);
         }
 
-        /* --- 2. Utility & Base Classes --- */
         .container {
-            max-width: 1200px;
+            max-width: 1050px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 22px;
         }
 
-        h1, h2, h3 {
-            font-family: var(--font-heading);
-            color: var(--color-text-light);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 0;
-        }
-        
-        section {
-            padding: 80px 0; 
-        }
-        
-        a {
-            color: var(--color-accent);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        a:hover {
-            color: var(--color-text-light);
-            text-decoration: underline;
-        }
-
-        /* --- 3. Header & Navigation --- */
         header {
-            padding: 15px 0; 
-            border-bottom: 1px solid var(--color-secondary-dark);
-            position: sticky; 
-            top: 0;
-            z-index: 1000;
-            background-color: var(--color-bg-dark);
-            box-shadow: 0 2px 5px var(--color-shadow);
+            background: var(--color-bg);
+            border-bottom: 1px solid var(--color-border);
+            box-shadow: var(--color-shadow);
+            position: sticky; top: 0; z-index: 100;
         }
 
         nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 15px;
+            display: flex; justify-content: space-between; align-items: center;
+            min-height: 60px;
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
             font-weight: 900;
+            letter-spacing: 2px;
         }
 
+        .nav-right {
+            display: flex; align-items: center; gap: 18px;
+        }
         .translate-btn {
             font-family: var(--font-body);
-            font-size: 0.9rem; 
-            padding: 7px 12px; 
+            font-size: .98rem;
+            padding: 8px 18px;
             border: 1px solid var(--color-accent);
-            border-radius: 4px;
-            transition: background-color var(--transition-speed), color var(--transition-speed);
+            border-radius: 5px;
+            background: var(--color-card);
+            color: var(--color-accent);
+            transition: background var(--transition), color var(--transition), box-shadow var(--transition);
             cursor: pointer;
+            outline: none;
         }
-        
         .translate-btn:hover {
-            background-color: var(--color-accent);
-            color: var(--color-bg-dark);
-            text-decoration: none;
-        }
-        
-        /* --- 4. Hero Section (The Grand Opening) --- */
-        .hero {
-            padding: 120px 0 100px 0; 
-            text-align: center;
+            background: var(--color-accent);
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(255,87,34,0.12);
+            border-color: var(--color-accent);
         }
 
+        main {
+            background: var(--color-bg);
+        }
+        section {
+            padding: 56px 0 36px 0;
+        }
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            color: var(--color-text);
+            margin-top: 0;
+            letter-spacing: .5px;
+        }
+        h1 {
+            font-size: clamp(2.6rem,7vw,4.7rem);
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-top: 18px;
+            margin-bottom: 10px;
+        }
+
+        /* --- Hero --- */
+        .hero {
+            text-align: center;
+            padding: 90px 0 48px 0;
+            background: linear-gradient(96deg,#fff 65%,#f8f6f4 100%);
+            border-bottom: 1px solid var(--color-border);
+        }
         .hero h1 {
-            font-size: clamp(3.5rem, 12vw, 7rem); 
-            margin-bottom: 15px; 
-            /* Gradient for the main title */
-            background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-text-light) 50%, var(--color-accent) 100%);
-            -webkit-background-clip: text;
+            background: linear-gradient(90deg, var(--color-accent) 0%, #23234b 40%, var(--color-accent) 100%);
+            background-clip: text; -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
-        .hero p.tagline {
-            font-size: clamp(1.2rem, 3vw, 1.7rem); 
+        .hero .tagline {
+            font-size: 1.17rem;
             font-weight: 300;
-            margin-bottom: 50px; 
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+            color: var(--color-text-muted);
+            margin-bottom: 34px;
         }
 
-        /* --- 5. About Section (The Introduction Block) --- */
+        /* --- About --- */
         .about-intro {
-            background-color: var(--color-secondary-dark);
-            padding: 80px 0; 
+            background: var(--color-section);
+            border-radius: var(--radius);
+            box-shadow: var(--color-shadow);
             text-align: center;
-            border-radius: var(--border-radius);
-            margin: 40px auto; 
-            max-width: 1000px;
+            margin: 28px auto 0;
+            max-width: 850px;
+            padding: 50px 32px 40px 32px;
         }
-        
-        .about-intro h2 {
-            font-size: 2.5rem; 
-            margin-bottom: 25px; 
-        }
-
         .about-intro p {
-            max-width: 750px;
+            font-size: 1.09rem;
+            color: var(--color-text);
             margin: 0 auto;
-            font-size: 1.15rem; 
+            max-width: 700px;
             line-height: 1.7;
         }
 
-        /* --- 6. Skills Grid (The Chessboard) --- */
+        /* --- Skills Grid --- */
         .skills-grid {
-            padding: 60px 0; 
+            padding: 24px 0 48px 0;
         }
-        
-        .skills-grid h2 {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 2.5rem;
-        }
-
         .skills-grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px; 
+            grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+            gap: 24px;
         }
-
         .skill-item {
-            padding: 30px; 
-            border-radius: var(--border-radius);
+            padding: 28px 22px;
+            background: var(--color-card);
+            border-radius: var(--radius);
+            box-shadow: var(--color-shadow);
+            border: 1px solid var(--color-border);
             text-align: center;
-            box-shadow: 0 3px 10px var(--color-shadow);
+            transition: box-shadow var(--transition), transform var(--transition);
         }
-
-        /* Alternating colors for chessboard effect (kept) */
-        .skills-grid-container > div:nth-child(odd) {
-            background-color: var(--color-secondary-dark);
+        .skill-item:hover {
+            box-shadow: 0 5px 22px rgba(255,87,34,0.16);
+            transform: translateY(-3px) scale(1.03);
         }
-
-        .skills-grid-container > div:nth-child(even) {
-            background-color: var(--color-bg-dark);
-            border: 2px solid var(--color-secondary-dark);
-        }
-        
         .skill-item h3 {
-            font-size: 1.4rem; 
-            margin-top: 15px; 
-            margin-bottom: 10px;
-            color: inherit;
-        }
-        
-        .icon-placeholder {
-            font-size: 3.5rem; 
             color: var(--color-accent);
-            display: block; 
-            margin-bottom: 10px;
         }
-        
+        .icon-placeholder {
+            font-size: 2.7rem;
+            color: var(--color-accent);
+            margin-bottom: 12px;
+        }
+        .skill-item p {
+            color: var(--color-text-muted);
+            font-size: .98rem;
+        }
 
-        /* --- 7. Live Clock Section (New Feature) --- */
+        /* --- Clock Section --- */
         .live-clock-section {
-            background-color: var(--color-bg-dark);
-            padding: 40px 0;
+            background: var(--color-section);
+            margin-top: 16px;
+            border-radius: var(--radius);
+            padding: 32px 0;
             text-align: center;
-            border-top: 1px solid var(--color-secondary-dark);
+            box-shadow: var(--color-shadow);
+            border-top: 1px solid var(--color-border);
         }
-        
         #current-date {
             font-family: var(--font-body);
-            font-size: 1.2rem;
-            font-weight: 400;
-            color: var(--color-text-light);
-            opacity: 0.8;
-            margin-bottom: 5px;
+            font-size: 1.11rem;
+            color: var(--color-text-muted);
+            margin-bottom: 7px;
             display: block;
         }
-
         #live-clock {
             font-family: 'Montserrat', monospace;
-            font-size: clamp(2rem, 5vw, 4rem);
+            font-size: clamp(1.5rem,4vw,3.2rem);
             font-weight: 700;
             color: var(--color-accent);
-            letter-spacing: 5px;
-            display: block;
-            margin-top: 0;
+            letter-spacing: 2.5px;
+            margin: 0;
         }
-        
-        /* --- 8. Footer --- */
-        footer {
-            padding: 30px 0; 
-            text-align: center;
-            background-color: var(--color-secondary-dark); 
-            border-top: 1px solid var(--color-secondary-dark);
+        .live-clock-section p {
+            margin: 0 0 12px 0;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.04rem;
+            color: var(--color-text);
         }
 
+        /* --- Footer --- */
+        footer {
+            background: var(--color-section);
+            border-top: 1px solid var(--color-border);
+            padding: 44px 0 14px 0;
+            text-align: center;
+        }
         .social-links {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap; 
-            margin-bottom: 20px; 
+            gap: 17px;
+            margin-bottom: 18px;
+            flex-wrap: wrap;
         }
-
         .social-links a {
-            font-size: 1.8rem; 
-            margin: 0 10px; 
-            color: var(--color-text-light);
-            transition: color 0.3s, transform 0.3s;
+            font-size: 1.6rem;
+            color: var(--color-text-muted);
+            background: #fff;
+            border-radius: 50%;
+            width: 36px; height: 36px;
+            display: flex; align-items: center; justify-content: center;
+            transition: color .19s, background .22s, transform .24s;
+            box-shadow: 0 2px 5px rgba(60,60,60,0.05);
+            border: none;
         }
-
         .social-links a:hover {
             color: var(--color-accent);
-            transform: scale(1.1);
+            background: #ffe2d2;
+            transform: scale(1.13) translateY(-2px);
         }
-        
         .copyright {
-            margin-top: 15px; 
-            font-size: 0.9rem;
-            color: var(--color-text-light);
-            opacity: 0.7;
+            margin-top: 7px;
+            font-size: .95rem;
+            color: var(--color-text-muted);
+            opacity: .7;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 700px) {
+            .container {padding: 0 10px;}
+            .about-intro {padding: 32px 8px;}
+            header nav {flex-direction: column; align-items: flex-start;}
         }
     </style>
 </head>
 <body>
-
     <script>
-        // --- MAPPING ICONS TO TEXT ---
+        // --- ICONS ---
         const iconMap = {
             design: 'fa-palette',
             branding: 'fa-lightbulb',
@@ -286,124 +270,86 @@
             strategy: 'fa-chess-knight',
             learning: 'fa-book-open',
         };
-
         function getIconClass(name) {
             return iconMap[name] || 'fa-star';
         }
 
-        // --- THEME SWITCHING JAVASCRIPT: ENFORCING LIGHT THEME ---
+        // --- ENFORCE LIGHT THEME ---
         function applyTheme(isDark) {
-            const body = document.body;
-            if (isDark) {
-                body.classList.add('dark-mode');
-            } else {
-                body.classList.remove('dark-mode');
-            }
+            document.body.classList.toggle('dark-mode', isDark);
         }
-
         function initializeTheme() {
-            // Setting defaultToDark to false enforces the light theme.
-            const defaultToDark = false; 
-            applyTheme(defaultToDark);
+            applyTheme(false);
         }
-        
-        // --- LIVE CLOCK SYSTEM ---
+        // --- LIVE CLOCK ---
         function updateClock() {
             const now = new Date();
-            
-            // Format time: HH:MM:SS (24-hour format)
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
             const seconds = String(now.getSeconds()).padStart(2, '0');
             const timeString = `${hours}:${minutes}:${seconds}`;
-            
-            // Format date: Day, Month DD, YYYY
             const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
             const dateString = now.toLocaleDateString(undefined, options);
 
             const clockElement = document.getElementById('live-clock');
             const dateElement = document.getElementById('current-date');
-            
-            if(clockElement) {
-                clockElement.textContent = timeString;
-            }
-            if(dateElement) {
-                dateElement.textContent = dateString;
-            }
+            if(clockElement) clockElement.textContent = timeString;
+            if(dateElement) dateElement.textContent = dateString;
         }
-        
-        // --- CUSTOM JS FOR INTERACTIONS & ICONS ---
         function initializeInteractions() {
-            // 1. Initialize Icons (replaces placeholder text with Font Awesome icons)
-            const iconElements = document.querySelectorAll('.icon-placeholder');
-            iconElements.forEach(el => {
+            // Icons
+            document.querySelectorAll('.icon-placeholder').forEach(el => {
                 const iconName = el.getAttribute('data-icon');
                 const i = document.createElement('i');
-                i.className = `fas ${getIconClass(iconName)}`; 
+                i.className = `fas ${getIconClass(iconName)}`;
                 el.appendChild(i);
             });
-            
-            // 2. Live Clock Start
+            // Clock
             updateClock();
-            setInterval(updateClock, 1000); // Update every second
-            
-            // 3. Translate Function (Uses Google Translate)
+            setInterval(updateClock, 1000);
+            // Translate button
             const translateBtn = document.querySelector('.translate-btn');
-             if (translateBtn) {
+            if (translateBtn) {
                 translateBtn.addEventListener('click', function() {
-                    // Get the current page's URL
                     const currentPageUrl = window.location.href;
-                    // Google Translate URL structure: 
-                    // https://translate.google.com/translate?sl=auto&tl=en&u=URL_OF_THE_PAGE
-                    // 'sl=auto' detects source language, 'tl=en' translates to English (defaulting here)
                     const translateUrl = `https://translate.google.com/translate?sl=auto&tl=en&u=${encodeURIComponent(currentPageUrl)}`;
-                    
-                    // Open the translated page in a new tab
                     window.open(translateUrl, '_blank');
                 });
             }
         }
-        
         window.onload = function() {
             initializeTheme();
             initializeInteractions();
         };
-
     </script>
-
     <header>
         <div class="container">
             <nav>
-                <div class="nav-left">
-                    <div class="logo">NSAMBA ALI</div>
-                </div>
+                <span class="logo">NSAMBA ALI</span>
                 <div class="nav-right">
                     <button class="translate-btn">Translate</button>
-                    </div>
+                </div>
             </nav>
         </div>
     </header>
-
     <main>
         <section class="hero">
             <div class="container">
                 <h1>The Strategist.</h1>
                 <p class="tagline">Graphics Designer. Problem Solver. Perpetual Chess-Noob.</p>
-                </div>
+            </div>
         </section>
-
         <section class="about-intro">
             <div class="container">
                 <h2>A Functional Approach to Visuals</h2>
                 <p>
-                    I am a generalist who builds engaging visual strategies, blending functional design with creative execution. My work is defined by precision and clear goals, whether on the canvas or the chessboard. I don't just design; I strategize the solution.
+                    I am a generalist who builds engaging visual strategies, blending functional design with creative execution. My work is defined by precision and clear goals, whether on the canvas [...]
                 </p>
             </div>
         </section>
-
         <section class="skills-grid">
             <div class="container">
-                 <h2>The Arsenal of Strategy</h2>
+                <h2>The Arsenal of Strategy</h2>
                 <div class="skills-grid-container">
                     <div class="skill-item">
                         <span class="icon-placeholder" data-icon="design"></span>
@@ -438,17 +384,14 @@
                 </div>
             </div>
         </section>
-        
         <section class="live-clock-section">
             <div class="container">
-                <p style="margin: 0; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Current System Date & Time (24hr)</p>
+                <p>Current System Date & Time (24hr)</p>
                 <span id="current-date"></span>
                 <span id="live-clock">00:00:00</span>
             </div>
         </section>
-        
     </main>
-
     <footer>
         <div class="container">
             <div class="social-links">
