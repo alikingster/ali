@@ -3,108 +3,470 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Under Maintenance</title>
+    <title>Nsamba Ali | The Strategist's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* Define CSS variables for colors */
+        /* --- 1. Variables & Global Styles --- */
+        
+        /* Light Mode Defaults (ENFORCED) */
         :root {
-            /* Light Theme Colors (Default) */
-            --bg-color: #f4f4f4;
-            --container-bg: #fff;
-            --text-color: #333;
-            --heading-color: #2c3e50;
-            --accent-color: #ff6347;
-            --social-color: #3498db;
+            --color-bg-dark: #FFFFFF;        
+            --color-text-light: #1A1A2E;     
+            --color-accent: #FF5722;         /* Vibrant Orange */
+            --color-secondary-dark: #F0F0F0; /* Light Gray for background sections */
+            --color-shadow: rgba(0, 0, 0, 0.1);
+            --color-shadow-hover: rgba(0, 0, 0, 0.2);
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Lato', sans-serif;
+            --transition-speed: 0.4s;
+            --border-radius: 8px; 
         }
 
-        /* Dark Theme Colors */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-color: #121212;
-                --container-bg: #1e1e1e;
-                --text-color: #e0e0e0;
-                --heading-color: #f0f0f0;
-                --accent-color: #ffa07a; /* A softer orange for dark mode */
-                --social-color: #3499ff;
-            }
+        /* Dark Mode Overrides (Kept for variable consistency but unused) */
+        .dark-mode {
+            --color-bg-dark: #1A1A2E;        
+            --color-text-light: #F4F4F9;     
+            --color-accent: #FF5722;
+            --color-secondary-dark: #2C2C45; 
+            --color-shadow: rgba(255, 255, 255, 0.05);
+            --color-shadow-hover: rgba(255, 255, 255, 0.1);
         }
 
-        /* General Body Styling - uses the variables */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            font-family: var(--font-body);
+            color: var(--color-text-light);
+            background-color: var(--color-bg-dark);
             margin: 0;
-            text-align: center;
-            transition: background-color 0.3s, color 0.3s;
+            padding: 0;
+            line-height: 1.7; 
+            overflow-x: hidden;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
         }
 
-        /* Container for content */
-        .maintenance-container {
-            max-width: 600px;
-            padding: 40px;
-            background-color: var(--container-bg);
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s, box-shadow 0.3s;
+        /* --- 2. Utility & Base Classes --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            color: var(--color-text-light);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 0;
         }
         
-        /* Adjust box shadow for dark mode to be less harsh */
-        @media (prefers-color-scheme: dark) {
-            .maintenance-container {
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-            }
+        section {
+            padding: 80px 0; 
         }
-
-        /* Icon styling */
-        .icon {
-            font-size: 72px;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-        }
-
-        /* Heading and Paragraph styling */
-        h1 {
-            font-size: 2.5em;
-            color: var(--heading-color);
-            margin-bottom: 15px;
-        }
-
-        p {
-            font-size: 1.1em;
-            line-height: 1.6;
-            color: var(--text-color);
-            margin-bottom: 25px;
-        }
-
-        /* Social media links */
-        .social-links a {
-            font-size: 24px;
-            color: var(--social-color);
-            margin: 0 15px;
+        
+        a {
+            color: var(--color-accent);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: var(--color-text-light);
+            text-decoration: underline;
+        }
+
+        /* --- 3. Header & Navigation --- */
+        header {
+            padding: 15px 0; 
+            border-bottom: 1px solid var(--color-secondary-dark);
+            position: sticky; 
+            top: 0;
+            z-index: 1000;
+            background-color: var(--color-bg-dark);
+            box-shadow: 0 2px 5px var(--color-shadow);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+        }
+
+        .translate-btn {
+            font-family: var(--font-body);
+            font-size: 0.9rem; 
+            padding: 7px 12px; 
+            border: 1px solid var(--color-accent);
+            border-radius: 4px;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+            cursor: pointer;
+        }
+        
+        .translate-btn:hover {
+            background-color: var(--color-accent);
+            color: var(--color-bg-dark);
+            text-decoration: none;
+        }
+        
+        /* --- 4. Hero Section (The Grand Opening) --- */
+        .hero {
+            padding: 120px 0 100px 0; 
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(3.5rem, 12vw, 7rem); 
+            margin-bottom: 15px; 
+            /* Gradient for the main title */
+            background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-text-light) 50%, var(--color-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p.tagline {
+            font-size: clamp(1.2rem, 3vw, 1.7rem); 
+            font-weight: 300;
+            margin-bottom: 50px; 
+            letter-spacing: 1px;
+        }
+
+        /* --- 5. About Section (The Introduction Block) --- */
+        .about-intro {
+            background-color: var(--color-secondary-dark);
+            padding: 80px 0; 
+            text-align: center;
+            border-radius: var(--border-radius);
+            margin: 40px auto; 
+            max-width: 1000px;
+        }
+        
+        .about-intro h2 {
+            font-size: 2.5rem; 
+            margin-bottom: 25px; 
+        }
+
+        .about-intro p {
+            max-width: 750px;
+            margin: 0 auto;
+            font-size: 1.15rem; 
+            line-height: 1.7;
+        }
+
+        /* --- 6. Skills Grid (The Chessboard) --- */
+        .skills-grid {
+            padding: 60px 0; 
+        }
+        
+        .skills-grid h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+
+        .skills-grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px; 
+        }
+
+        .skill-item {
+            padding: 30px; 
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: 0 3px 10px var(--color-shadow);
+        }
+
+        /* Alternating colors for chessboard effect (kept) */
+        .skills-grid-container > div:nth-child(odd) {
+            background-color: var(--color-secondary-dark);
+        }
+
+        .skills-grid-container > div:nth-child(even) {
+            background-color: var(--color-bg-dark);
+            border: 2px solid var(--color-secondary-dark);
+        }
+        
+        .skill-item h3 {
+            font-size: 1.4rem; 
+            margin-top: 15px; 
+            margin-bottom: 10px;
+            color: inherit;
+        }
+        
+        .icon-placeholder {
+            font-size: 3.5rem; 
+            color: var(--color-accent);
+            display: block; 
+            margin-bottom: 10px;
+        }
+        
+
+        /* --- 7. Live Clock Section (New Feature) --- */
+        .live-clock-section {
+            background-color: var(--color-bg-dark);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--color-secondary-dark);
+        }
+        
+        #current-date {
+            font-family: var(--font-body);
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--color-text-light);
+            opacity: 0.8;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        #live-clock {
+            font-family: 'Montserrat', monospace;
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 700;
+            color: var(--color-accent);
+            letter-spacing: 5px;
+            display: block;
+            margin-top: 0;
+        }
+        
+        /* --- 8. Footer --- */
+        footer {
+            padding: 30px 0; 
+            text-align: center;
+            background-color: var(--color-secondary-dark); 
+            border-top: 1px solid var(--color-secondary-dark);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; 
+            margin-bottom: 20px; 
+        }
+
+        .social-links a {
+            font-size: 1.8rem; 
+            margin: 0 10px; 
+            color: var(--color-text-light);
+            transition: color 0.3s, transform 0.3s;
         }
 
         .social-links a:hover {
-            color: var(--accent-color);
+            color: var(--color-accent);
+            transform: scale(1.1);
+        }
+        
+        .copyright {
+            margin-top: 15px; 
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            opacity: 0.7;
         }
     </style>
 </head>
 <body>
-    <div class="maintenance-container">
-        <div class="icon">⚙️</div>
-        <h1>We're making things even better!</h1>
-        <p>
-            Our website is currently undergoing scheduled maintenance to improve its performance and features.
-            We apologize for the inconvenience and appreciate your patience. We'll be back online shortly.
-        </p>
-        <p>
-            For urgent inquiries, please contact us at: <b>mail@alinsamba.space</b>
-        </p>
+
+    <script>
+        // --- MAPPING ICONS TO TEXT ---
+        const iconMap = {
+            design: 'fa-palette',
+            branding: 'fa-lightbulb',
+            web: 'fa-code',
+            generalist: 'fa-brain',
+            strategy: 'fa-chess-knight',
+            learning: 'fa-book-open',
+        };
+
+        function getIconClass(name) {
+            return iconMap[name] || 'fa-star';
+        }
+
+        // --- THEME SWITCHING JAVASCRIPT: ENFORCING LIGHT THEME ---
+        function applyTheme(isDark) {
+            const body = document.body;
+            if (isDark) {
+                body.classList.add('dark-mode');
+            } else {
+                body.classList.remove('dark-mode');
+            }
+        }
+
+        function initializeTheme() {
+            // Setting defaultToDark to false enforces the light theme.
+            const defaultToDark = false; 
+            applyTheme(defaultToDark);
+        }
+        
+        // --- LIVE CLOCK SYSTEM ---
+        function updateClock() {
+            const now = new Date();
+            
+            // Format time: HH:MM:SS (24-hour format)
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            
+            // Format date: Day, Month DD, YYYY
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dateString = now.toLocaleDateString(undefined, options);
+
+            const clockElement = document.getElementById('live-clock');
+            const dateElement = document.getElementById('current-date');
+            
+            if(clockElement) {
+                clockElement.textContent = timeString;
+            }
+            if(dateElement) {
+                dateElement.textContent = dateString;
+            }
+        }
+        
+        // --- CUSTOM JS FOR INTERACTIONS & ICONS ---
+        function initializeInteractions() {
+            // 1. Initialize Icons (replaces placeholder text with Font Awesome icons)
+            const iconElements = document.querySelectorAll('.icon-placeholder');
+            iconElements.forEach(el => {
+                const iconName = el.getAttribute('data-icon');
+                const i = document.createElement('i');
+                i.className = `fas ${getIconClass(iconName)}`; 
+                el.appendChild(i);
+            });
+            
+            // 2. Live Clock Start
+            updateClock();
+            setInterval(updateClock, 1000); // Update every second
+            
+            // 3. Translate Function (Uses Google Translate)
+            const translateBtn = document.querySelector('.translate-btn');
+             if (translateBtn) {
+                translateBtn.addEventListener('click', function() {
+                    // Get the current page's URL
+                    const currentPageUrl = window.location.href;
+                    // Google Translate URL structure: 
+                    // https://translate.google.com/translate?sl=auto&tl=en&u=URL_OF_THE_PAGE
+                    // 'sl=auto' detects source language, 'tl=en' translates to English (defaulting here)
+                    const translateUrl = `https://translate.google.com/translate?sl=auto&tl=en&u=${encodeURIComponent(currentPageUrl)}`;
+                    
+                    // Open the translated page in a new tab
+                    window.open(translateUrl, '_blank');
+                });
+            }
+        }
+        
+        window.onload = function() {
+            initializeTheme();
+            initializeInteractions();
+        };
+
+    </script>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="nav-left">
+                    <div class="logo">NSAMBA ALI</div>
+                </div>
+                <div class="nav-right">
+                    <button class="translate-btn">Translate</button>
+                    </div>
+            </nav>
         </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>The Strategist.</h1>
+                <p class="tagline">Graphics Designer. Problem Solver. Perpetual Chess-Noob.</p>
+                </div>
+        </section>
+
+        <section class="about-intro">
+            <div class="container">
+                <h2>A Functional Approach to Visuals</h2>
+                <p>
+                    I am a generalist who builds engaging visual strategies, blending functional design with creative execution. My work is defined by precision and clear goals, whether on the canvas or the chessboard. I don't just design; I strategize the solution.
+                </p>
+            </div>
+        </section>
+
+        <section class="skills-grid">
+            <div class="container">
+                 <h2>The Arsenal of Strategy</h2>
+                <div class="skills-grid-container">
+                    <div class="skill-item">
+                        <span class="icon-placeholder" data-icon="design"></span>
+                        <h3>Graphics Design</h3>
+                        <p>High-fidelity visual communication across all mediums.</p>
+                    </div>
+                    <div class="skill-item">
+                        <span class="icon-placeholder" data-icon="branding"></span>
+                        <h3>Brand Identity</h3>
+                        <p>Developing cohesive, memorable visual languages and style guides.</p>
+                    </div>
+                    <div class="skill-item">
+                        <span class="icon-placeholder" data-icon="web"></span>
+                        <h3>Web/UI Design</h3>
+                        <p>Designing interfaces for intuitive user experience and clean aesthetics.</p>
+                    </div>
+                    <div class="skill-item">
+                        <span class="icon-placeholder" data-icon="generalist"></span>
+                        <h3>Generalist Mindset</h3>
+                        <p>Bridging design, business logic, and diverse problem-solving methods.</p>
+                    </div>
+                    <div class="skill-item">
+                        <span class="icon-placeholder" data-icon="strategy"></span>
+                        <h3>Strategic Thinking</h3>
+                        <p>Focusing on the 'why' behind the visual to meet core objectives.</p>
+                    </div>
+                    <div class="skill-item">
+                        <span class="icon-placeholder" data-icon="learning"></span>
+                        <h3>Chess (Learning)</h3>
+                        <p>A commitment to constant learning and structured problem-solving.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="live-clock-section">
+            <div class="container">
+                <p style="margin: 0; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Current System Date & Time (24hr)</p>
+                <span id="current-date"></span>
+                <span id="live-clock">00:00:00</span>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a> 
+                <a href="https://www.behance.net/" target="_blank" title="Behance"><i class="fab fa-behance"></i></a>
+                <a href="https://github.com/" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://dribbble.com/" target="_blank" title="Dribbble"><i class="fab fa-dribbble"></i></a>
+                <a href="https://www.instagram.com/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/" target="_blank" title="X (formerly Twitter)"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://www.facebook.com/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.youtube.com/" target="_blank" title="Youtube"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.figma.com/" target="_blank" title="Figma"><i class="fab fa-figma"></i></a>
+                <a href="mailto:mail@alinsamba.space" target="_blank" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p class="copyright">
+                &copy; 2025 NSAMBA ALI. The Strategist's Board.
+            </p>
+        </div>
+    </footer>
 </body>
 </html>
